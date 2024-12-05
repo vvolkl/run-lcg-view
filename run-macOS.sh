@@ -11,7 +11,7 @@ if [ -z "${VIEW_PATH}" ]; then
     echo "The directory /Users/Shared/cvmfs/sft.cern.ch/lcg cannot be accessed!"
     echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
     echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
-    echo "There is no automout on macOS."
+    echo "There is no automount on macOS."
     exit 1
   fi
 
@@ -19,7 +19,7 @@ if [ -z "${VIEW_PATH}" ]; then
     echo "The directory /Users/Shared/cvmfs/geant4.cern.ch/share/ cannot be accessed!"
     echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
     echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
-    echo "There is no automout on macOS."
+    echo "There is no automount on macOS."
     exit 1
   fi
 
@@ -32,7 +32,7 @@ if [ -z "${VIEW_PATH}" ]; then
     echo "The directory /Users/Shared/cvmfs/sft.cern.ch/lcg cannot be accessed!"
     echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
     echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
-    echo "There is no automout on macOS."
+    echo "There is no automount on macOS."
     exit 1
   fi
     VIEW_PATH="/Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/views/${LCG_RELEASE}/latest/${LCG_PLATFORM}"
@@ -46,6 +46,15 @@ echo "Installing view prerequisites:"
 echo "Installation done."
 
 echo "Full view path is ${VIEW_PATH}"
+
+mount -l
+cvmfs_config chksetup || true
+ls /cvmfs/sft-nightlies.cern.ch
+ls /Users/Shared/cvmfs/sft-nightlies.cern.ch
+ls /Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg
+ls /Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/views/
+ls /Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/views/dev4
+ls /Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/views/dev4/latest/
 
 ls ${VIEW_PATH}
 
