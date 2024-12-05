@@ -27,14 +27,22 @@ if [ -z "${VIEW_PATH}" ]; then
 
   VIEW_PATH="/Users/Shared/cvmfs/sft.cern.ch/lcg/views/${LCG_RELEASE_PLATFORM}"
   if [[ "${LCG_RELEASE}" == *"dev"* ]]; then
+
+  if [ ! -d "/Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/" ]; then
+    echo "The directory /Users/Shared/cvmfs/sft.cern.ch/lcg cannot be accessed!"
+    echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
+    echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
+    echo "There is no automout on macOS."
+    exit 1
+  fi
     VIEW_PATH="/Users/Shared/cvmfs/sft-nightlies.cern.ch/lcg/views/${LCG_RELEASE}/latest/${LCG_PLATFORM}"
   fi
 fi
 
 echo "Installing view prerequisites:"
-brew install ninja
-brew install gfortran
-brew install --cask xquartz
+#brew install ninja
+#brew install gfortran
+#brew install --cask xquartz
 echo "Installation done."
 
 echo "Full view path is ${VIEW_PATH}"
