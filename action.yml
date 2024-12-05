@@ -89,3 +89,8 @@ runs:
         RUN: ${{ inputs.run }}
         SETUP_SCRIPT: ${{ inputs.setup-script }}
         VIEW_PATH: ${{ inputs.view-path }}
+    - name: Archive logs
+      if: ${{ always () }}
+      run: |
+        cat /tmp/cvmfs-debug.log
+
