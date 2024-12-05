@@ -47,7 +47,7 @@ echo "Installation done."
 
 echo "Full view path is ${VIEW_PATH}"
 
-mount -l
+df -h
 cvmfs_config chksetup || true
 ls /cvmfs/sft-nightlies.cern.ch
 ls /Users/Shared/cvmfs/sft-nightlies.cern.ch
