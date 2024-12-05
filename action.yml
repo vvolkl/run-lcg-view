@@ -90,6 +90,7 @@ runs:
         SETUP_SCRIPT: ${{ inputs.setup-script }}
         VIEW_PATH: ${{ inputs.view-path }}
     - name: Archive logs
+      shell: bash
       if: ${{ always () }}
       run: |
         cat /tmp/cvmfs-debug.log
