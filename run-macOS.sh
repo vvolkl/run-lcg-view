@@ -9,7 +9,7 @@ if [ -z "${VIEW_PATH}" ]; then
 
   if [ ! -d "/Users/Shared/cvmfs/sft.cern.ch/lcg/" ]; then
     echo "The directory /Users/Shared/cvmfs/sft.cern.ch/lcg cannot be accessed!"
-    echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v2 action"
+    echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
     echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
     echo "There is no automout on macOS."
     exit 1
@@ -17,7 +17,7 @@ if [ -z "${VIEW_PATH}" ]; then
 
   if [ ! -d "/Users/Shared/cvmfs/geant4.cern.ch/share/" ]; then
     echo "The directory /Users/Shared/cvmfs/geant4.cern.ch/share/ cannot be accessed!"
-    echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v2 action"
+    echo "Make sure you are using the cvmfs-contrib/github-action-cvmfs@v5 action or later"
     echo "and that you have set cvmfs_repositories: 'sft.cern.ch,geant4.cern.ch'."
     echo "There is no automout on macOS."
     exit 1
@@ -38,6 +38,8 @@ brew install --cask xquartz
 echo "Installation done."
 
 echo "Full view path is ${VIEW_PATH}"
+
+ls ${VIEW_PATH}
 
 if [ ! -d "${VIEW_PATH}" ]; then
   echo "Did not find a view under this path!"
