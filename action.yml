@@ -93,5 +93,5 @@ runs:
       shell: bash
       if: ${{ always () }}
       run: |
-        cat /tmp/cvmfs-debug.log
+        sudo cat /tmp/cvmfs-debug.log
 
